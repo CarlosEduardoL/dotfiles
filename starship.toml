@@ -1,0 +1,86 @@
+command_timeout = 5000
+
+[[battery.display]]
+threshold = 30
+style = "bold red"
+
+[[battery.display]]
+threshold = 60
+style = "bold yellow"
+discharging_symbol = "💦"
+
+[time]
+disabled = true
+format = '[ $time]($style) '
+utc_time_offset = "-5"
+use_12hr = true
+
+[username]
+style_user = "green bold"
+format = '[\[ $user\]]($style) '
+disabled = false
+show_always = true
+
+[aws]
+symbol = " "
+format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
+[gcloud]
+format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
+
+[conda]
+format = '\[[$symbol$environment]($style)\]'
+symbol = " "
+[python]
+format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+symbol = " "
+
+[ruby]
+format = '\[[$symbol($version)]($style)\]'
+symbol = " "
+
+[nim]
+format = '\[[$symbol($version)]($style)\]'
+symbol = " "
+
+[kubernetes]
+format = '\[[$symbol$context( \($namespace\))]($style)\] '
+disabled = false
+[kubernetes.context_aliases]
+".*/(?P<name>.*)" = "$name"
+
+[git_branch]
+symbol = " "
+format = '\[[$symbol$branch]($style)\]'
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style))'
+
+[rust]
+format = '\[[$symbol($version)]($style)\]'
+symbol = " "
+
+[nodejs]
+format = '\[[$symbol($version)]($style)\]'
+
+[golang]
+format = '\[[$symbol($version)]($style)\]'
+symbol = " "
+
+[java]
+format = '\[[$symbol($version)]($style)\]'
+symbol = " "
+
+[kotlin]
+format = '\[[$symbol($version)]($style)\]'
+symbol = "🅺"
+
+[terraform]
+format = '\[[$symbol$workspace]($style)\]'
+
+[vagrant]
+format = '\[[$symbol($version)]($style)\]'
+
+[deno]
+format = '\[[$symbol($version)]($style)\]'
+
+[crystal]
+format = '\[[$symbol($version)]($style)\]'

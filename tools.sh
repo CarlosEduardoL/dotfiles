@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-DOT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-source "$DOT_DIR/utils.sh"
-
 LOCAL_BIN="$HOME/.local/bin"
+
+# Install binstall
+cargo install --locked cargo-binstall &>/dev/null
 
 # Install Exa (ls replacement powered by rust)
 if ! cmd exa; then

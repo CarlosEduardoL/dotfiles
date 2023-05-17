@@ -27,6 +27,6 @@ if ! cmd curl; then
    exit 1;
 fi
 
-bash "$DOT_DIR/langs.sh"
-bash "$DOT_DIR/tools.sh"
-bash "$DOT_DIR/shell.sh"
+source "$DOT_DIR/langs.sh"
+source "$DOT_DIR/tools.sh"
+source "$DOT_DIR/shell.sh"

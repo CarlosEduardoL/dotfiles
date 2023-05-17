@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-DOT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-source "$DOT_DIR/utils.sh"
-
 # I'll generate config files only for ZSH, so it's required
 if ! cmd zsh; then
   echo >&2 "Please install zsh before continue"

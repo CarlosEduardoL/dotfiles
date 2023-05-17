@@ -1,8 +1,4 @@
 #!/usr/bin/env bash
-# Obtained from https://stackoverflow.com/questions/59895/how-do-i-get-the-directory-where-a-bash-script-is-located-from-within-the-script
-DOT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-
-source "$DOT_DIR/utils.sh"
 
 # Install NodeJS Stable using Node Version Manager
 if ! cmd node; then

@@ -1,6 +1,6 @@
 # Add local binaries to the PATH
 LOCAL_BIN="$HOME/.local/bin"
-if ! [[ :$PATH: == *:"$LOCAL_BIN":* ]]; then
+if ! [[ ":$PATH:" == *:"$LOCAL_BIN":* ]]; then
   export PATH="$LOCAL_BIN:$PATH"
 fi
 
@@ -18,3 +18,9 @@ source "$HOME/.cargo/env"
 
 # Configure SDKMAN
 source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# Configure Jetbrains Toolbox IDEs scripts
+TOOLBOX_SCRIPTS="$HOME/.local/share/JetBrains/Toolbox/scripts"
+if ! [[ :"$PATH": == *:"$TOOLBOX_SCRIPTS":* ]]; then
+  export PATH="$TOOLBOX_SCRIPTS:$PATH"
+fi

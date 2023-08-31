@@ -18,9 +18,3 @@ source "$HOME/.cargo/env"
 
 # Configure SDKMAN
 source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# Configure Jetbrains Toolbox IDEs scripts
-TOOLBOX_SCRIPTS="$HOME/.local/share/JetBrains/Toolbox/scripts"
-if ! [[ :"$PATH": == *:"$TOOLBOX_SCRIPTS":* ]]; then
-  export PATH="$TOOLBOX_SCRIPTS:$PATH"
-fi

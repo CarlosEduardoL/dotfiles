@@ -16,17 +16,19 @@ if [[ ! "$(cat /etc/passwd | grep $USER | awk -F: '{print $NF}')" == */zsh ]]; t
   chsh -s $(which zsh)
 fi
 
-# Install Starship prompt
-if ! cmd starship; then
-  cargo binstall -y starship
-  cp "$DOT_DIR/starship.toml" "$HOME/.config/"
-fi
+if cmd cargo; then 
+  # Install Starship prompt
+  if ! cmd starship; then
+    cargo binstall -y starship
+    cp "$DOT_DIR/starship.toml" "$HOME/.config/"
+  fi
 
-# Install Sheldon plugin manager
-if ! cmd sheldon; then
-  cargo binstall -y sheldon
-  mkdir -p "$HOME/.config/sheldon"
-  cp "$DOT_DIR/plugins.toml" "$HOME/.config/sheldon"
+  # Install Sheldon plugin manager
+  if ! cmd sheldon; then
+    cargo binstall -y sheldon
+    mkdir -p "$HOME/.config/sheldon"
+    cp "$DOT_DIR/plugins.toml" "$HOME/.config/sheldon"
+  fi
 fi
 
 # Install fzf
@@ -52,4 +54,11 @@ ZSHRC="$HOME/.zshrc"
 if [[ -f "$ZSHRC" ]] && ! cmp -s "$ZSHRC" <(cat <(echo "DOT_DIR='$DOT_DIR'") <(cat "$DOT_DIR/.zshrc")); then
   mv "$ZSHRC" "$HOME/.zshrc_bak" && echo "your zsh config has being backuped on .zshrc_bak"
 fi
-cat <(echo "DOT_DIR='$DOT_DIR'") <(cat "$DOT_DIR/.zshrc") > "$ZSHRC"
+cat <(cat "$DOT_DIR/.zshrc" | head -n 3) <(echo "DOT_DIR='$DOT_DIR'") <(cat "$DOT_DIR/.zshrc" | grep -v "$(cat "$DOT_DIR/.zshrc" | head -n 3)") > "$ZSHRC"
+
+if cmd starship; then
+  echo 'eval "$(sheldon source)"
+eval "$(starship init zsh)"' >> "$ZSHRC"
+fi
+
+echo "In the case you want any custon aliases, functions or everithing else please use custom_config.zsh file"

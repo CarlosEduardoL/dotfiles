@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+set -e
+
 # Obtained from https://stackoverflow.com/questions/59895/how-do-i-get-the-directory-where-a-bash-script-is-located-from-within-the-script
 DOT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
@@ -30,3 +33,5 @@ fi
 source "$DOT_DIR/langs.sh"
 source "$DOT_DIR/tools.sh"
 source "$DOT_DIR/shell.sh"
+
+set +e

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+set -e
 # Check if user is root
 SUDO=''
 if [ "$EUID" -ne 0 ]; then
